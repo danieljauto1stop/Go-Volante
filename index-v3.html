@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Volante | Mobile Luxury Detailing</title>
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-soft: #ff9a3d;
+      --black: #070707;
+      --black-2: #111;
+      --white: #fff;
+      --gray: #b8b8b8;
+      --card: rgba(255,255,255,.07);
+      --border: rgba(255,255,255,.13);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(0,0,0,.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: .9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      color: white;
+      border: 0;
+      font-size: 1.7rem;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 130px 22px 80px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.94)),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 40%, rgba(255,106,0,.32), transparent 30%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 920px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--orange-soft);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 11vw, 7rem);
+      line-height: .9;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+    }
+
+    .tagline {
+      font-size: clamp(1.35rem, 4vw, 2.4rem);
+      color: var(--orange);
+      margin: 18px 0;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      color: #ddd;
+      font-size: 1.05rem;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--orange);
+      background: var(--orange);
+      color: #000;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: .82rem;
+      letter-spacing: 1px;
+      transition: .3s;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 28px rgba(255,106,0,.45);
+    }
+
+    section {
+      padding: 90px 22px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .section-title span {
+      color: var(--orange);
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,106,0,.65);
+    }
+
+    .card h3 {
+      color: var(--orange);
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .price {
+      margin: 12px 0;
+      font-size: 1.55rem;
+      font-weight: 900;
+    }
+
+    .muted {
+      color: var(--gray);
+    }
+
+    .pill-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #ddd;
+      font-size: .82rem;
+    }
+
+    .orange-box {
+      background: linear-gradient(135deg, var(--orange), #ff8c22);
+      color: #000;
+      border-radius: 26px;
+      padding: 34px;
+      font-weight: 800;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery div {
+      height: 240px;
+      border-radius: 22px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery div::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      background: rgba(0,0,0,.7);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.08);
+      color: white;
+      font-size: 1rem;
+    }
+
+    option {
+      color: #000;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 36px 22px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 998;
+      background: var(--orange);
+      color: #000;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      box-shadow: 0 0 28px rgba(255,106,0,.5);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: .8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 67px;
+        left: 0;
+        width: 100%;
+        background: #050505;
+        display: none;
+        flex-direction: column;
+        padding: 22px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .grid-2,
+      .grid-3,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery div {
+        height: 260px;
+      }
+
+      .hero {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#home" class="logo">GO <span>VOLANTE</span></a>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <a class="floating-call" href="tel:9565550123">Call Now</a>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow">Mobile Luxury Detailing • Rio Grande Valley</div>
+        <h1>Go Volante</h1>
+        <div class="tagline">What Drives You.</div>
+        <p>
+          Premium mobile detailing for exotics, foreign vehicles, classics, modified builds,
+          trucks, SUVs, motorcycles, show cars, and aircraft.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href="#schedule">Request a Quote</a>
+          <a class="btn secondary" href="#services">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid grid-2">
+        <div class="section-title reveal">
+          <div class="eyebrow">About Go Volante</div>
+          <h2>Experience. Passion. <span>Precision.</span></h2>
+        </div>
+        <div class="card reveal">
+          <p>
+            Go Volante was built from years of experience and a passion for high-end maintenance,
+            performance vehicles, classics, aircraft, and craftsmanship. We bring luxury-level
+            mobile detailing directly to clients across McAllen, Edinburg, Mission, Pharr,
+            San Juan, and Hidalgo.
+          </p>
+          <br>
+          <p class="muted">
+            Professionally trained. Premium products. Paint-safe methods. Detail work designed
+            for machines that deserve more.
+          </p>
+          <div class="pill-wrap">
+            <span class="pill">Mobile Service Only</span>
+            <span class="pill">Premium Products</span>
+            <span class="pill">Technical Credibility</span>
+            <span class="pill">Complimentary Air Freshener</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">Services</div>
+          <h2>Luxury Care. <span>Built Around You.</span></h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <h3>Premium Car Wash</h3>
+            <p>Foam wash, wheels, tires, glass, exterior wipe-down, and final inspection.</p>
+            <div class="price">Starting at $75</div>
+            <p class="muted">Includes complimentary air freshener.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Full Details</h3>
+            <p>Interior and exterior reset with premium cleaning, protection, and finishing.</p>
+            <div class="price">Starting at $225</div>
+            <p class="muted">Final quote based on size and condition.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Ceramic Coatings</h3>
+            <p>Custom consultation and vehicle-specific protection plan.</p>
+            <div class="price">Custom Quote</div>
+            <p class="muted">Built for gloss, protection, and easier maintenance.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Paint Correction</h3>
+            <p>Gloss enhancement, swirl reduction, oxidation improvement, and refined clarity.</p>
+            <div class="price">Starting at $350</div>
+            <p class="muted">Inspection required.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Color Match Paint Touch-Up</h3>
+            <p>Minor chip and scratch touch-up service for a cleaner finish.</p>
+            <div class="price">Starting at $95</div>
+            <p class="muted">Paint match consultation required.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Windshield Rock Chip Repair</h3>
+            <p>Small rock chip repair to help improve visibility and reduce spread risk.</p>
+            <div class="price">Starting at $75</div>
+            <p class="muted">Subject to chip size and location.</p>
+          </div>
+        </div>
+
+        <div class="orange-box reveal" style="margin-top:24px;">
+          Emergency detailing, event prep, show prep, and priority response available at premium rates.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">After Care Products</div>
+          <h2>Maintain The <span>Finish.</span></h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal"><h3>All Purpose Cleaner</h3><p class="muted">Versatile cleaning power for routine upkeep.</p></div>
+          <div class="card reveal"><h3>Nebula Mist</h3><p class="muted">Quick detail spray for gloss and slickness.</p></div>
+          <div class="card reveal"><h3>Sapphire Vision</h3><p class="muted">Premium glass cleaner for crystal-clear visibility.</p></div>
+          <div class="card reveal"><h3>Sapphire Vision Plus+</h3><p class="muted">Aerosol glass cleaner for pro-level clarity.</p></div>
+          <div class="card reveal"><h3>Fresh Kicks</h3><p class="muted">Tire dressing for a deep, clean finish.</p></div>
+          <div class="card reveal"><h3>Cab-In-Kush</h3><p class="muted">Leather cleaner and conditioner for premium interiors.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">Gallery</div>
+          <h2>Before / After + <span>Featured Machines.</span></h2>
+        </div>
+
+        <div class="gallery reveal">
+          <div data-label="Exotic Detail" style="background-image:url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=900&q=80')"></div>
+          <div data-label="Classic Finish" style="background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80')"></div>
+          <div data-label="Modified Build" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80')"></div>
+          <div data-label="Aircraft Care" style="background-image:url('https://images.unsplash.com/photo-1521727857535-28d2047619b7?auto=format&fit=crop&w=900&q=80')"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="container grid grid-2">
+        <div class="reveal">
+          <div class="section-title">
+            <div class="eyebrow">Schedule</div>
+            <h2>Mobile Detailing <span>By Appointment.</span></h2>
+          </div>
+          <p class="muted">
+            Available Monday–Friday, 8:00 AM–6:00 PM.
+            All services begin with a consultation and custom quote.
+            Secure card payment available upon booking approval.
+          </p>
+          <br>
+          <p>
+            Service area: McAllen, Edinburg, Mission, Pharr, San Juan, Hidalgo,
+            and surrounding Rio Grande Valley areas.
+          </p>
+        </div>
+
+        <form class="card reveal" onsubmit="submitForm(event)">
+          <input type="text" placeholder="Full Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <input type="email" placeholder="Email Address">
+          <input type="text" placeholder="Vehicle Year / Make / Model">
+          <select required>
+            <option value="">Service Needed</option>
+            <option>Premium Car Wash</option>
+            <option>Full Detail</option>
+            <option>Ceramic Coating Consultation</option>
+            <option>Paint Correction</option>
+            <option>Paint Touch-Up</option>
+            <option>Windshield Rock Chip Repair</option>
+            <option>Emergency / Show Prep</option>
+          </select>
+          <textarea placeholder="Tell us about your vehicle, condition, location, and preferred date."></textarea>
+          <button class="btn" type="submit">Submit Quote Request</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">Testimonials</div>
+          <h2>Client <span>Impressions.</span></h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <p>“Professional, sharp, and extremely detail-oriented. My car looked better than delivery day.”</p>
+            <br><strong>— Sample Client</strong>
+          </div>
+          <div class="card reveal">
+            <p>“The mobile service made everything easy. Premium experience from start to finish.”</p>
+            <br><strong>— Sample Client</strong>
+          </div>
+          <div class="card reveal">
+            <p>“Perfect for enthusiasts who care about the small details. Highly recommend.”</p>
+            <br><strong>— Sample Client</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container grid grid-2">
+        <div class="reveal">
+          <div class="section-title">
+            <div class="eyebrow">Contact</div>
+            <h2>Let’s Detail <span>What Drives You.</span></h2>
+          </div>
+
+          <p><strong>Phone:</strong> <a href="tel:9565550123">(956) 555-0123</a></p>
+          <p><strong>Text:</strong> <a href="sms:9565550123">Send a Text</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@govolante.com">info@govolante.com</a></p>
+          <p><strong>Instagram:</strong> @govolante</p>
+          <p><strong>Facebook:</strong> Go Volante</p>
+        </div>
+
+        <form class="card reveal" onsubmit="submitForm(event)">
+          <input type="text" placeholder="Name" required>
+          <input type="tel" placeholder="Phone" required>
+          <input type="email" placeholder="Email">
+          <textarea placeholder="How can Go Volante help?"></textarea>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Go Volante. Mobile Luxury Detailing across the Rio Grande Valley.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Thank you! This is a demo form. Connect it to email, CRM, or booking software later.");
+      event.target.reset();
+    }
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 120;
+
+        if (elementTop < windowHeight - revealPoint) {
+          element.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+</body>
+</html>
