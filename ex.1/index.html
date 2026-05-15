@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Volante | Mobile Luxury Detailing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Skip link for keyboard/screen-reader users -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Scroll progress indicator -->
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+  <header>
+    <nav>
+      <a href="#home" class="logo">GO <span>VOLANTE</span></a>
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <div class="nav-links" id="navLinks" role="navigation" aria-label="Site navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <a class="floating-call" href="tel:9565550123" aria-label="Call Go Volante now">📞 Call Now</a>
+
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-content reveal">
+        <div class="eyebrow">Mobile Luxury Detailing &bull; Rio Grande Valley</div>
+        <h1>Go Volante</h1>
+        <div class="tagline">What Drives You.</div>
+        <p>
+          Premium mobile detailing for exotics, foreign vehicles, classics, modified builds,
+          trucks, SUVs, motorcycles, show cars, and aircraft.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href="#schedule">Request a Quote</a>
+          <a class="btn secondary" href="#services">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS BAR ── -->
+    <div class="stats-bar" aria-label="Quick stats">
+      <div class="container">
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="5" data-suffix="+">5+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="500" data-suffix="+">500+</span>
+          <span class="stat-label">Vehicles Detailed</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="6">6</span>
+          <span class="stat-label">RGV Cities Served</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+          <span class="stat-label">Mobile Service</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ABOUT ── -->
+    <section id="about">
+      <div class="container grid grid-2">
+        <div class="section-title reveal">
+          <div class="eyebrow">About Go Volante</div>
+          <h2>Experience. Passion. <span>Precision.</span></h2>
+        </div>
+        <div class="card reveal">
+          <p>
+            Go Volante was built from years of experience and a passion for high-end maintenance,
+            performance vehicles, classics, aircraft, and craftsmanship. We bring luxury-level
+            mobile detailing directly to clients across McAllen, Edinburg, Mission, Pharr,
+            San Juan, and Hidalgo.
+          </p>
+          <br>
+          <p class="muted">
+            Professionally trained. Premium products. Paint-safe methods. Detail work designed
+            for machines that deserve more.
+          </p>
+          <div class="pill-wrap">
+            <span class="pill">Mobile Service Only</span>
+            <span class="pill">Premium Products</span>
+            <span class="pill">Technical Credibility</span>
+            <span class="pill">Complimentary Air Freshener</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES ── -->
+    <section id="services">
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">Services</div>
+          <h2>Luxury Care. <span>Built Around You.</span></h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <h3>Premium Car Wash</h3>
+            <p>Foam wash, wheels, tires, glass, exterior wipe-down, and final inspection.</p>
+            <div class="price">Starting at $75</div>
+            <p class="muted">Includes complimentary air freshener.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Full Details</h3>
+            <p>Interior and exterior reset with premium cleaning, protection, and finishing.</p>
+            <div class="price">Starting at $225</div>
+            <p class="muted">Final quote based on size and condition.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Ceramic Coatings</h3>
+            <p>Custom consultation and vehicle-specific protection plan.</p>
+            <div class="price">Custom Quote</div>
+            <p class="muted">Built for gloss, protection, and easier maintenance.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Paint Correction</h3>
+            <p>Gloss enhancement, swirl reduction, oxidation improvement, and refined clarity.</p>
+            <div class="price">Starting at $350</div>
+            <p class="muted">Inspection required.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Color Match Paint Touch-Up</h3>
+            <p>Minor chip and scratch touch-up service for a cleaner finish.</p>
+            <div class="price">Starting at $95</div>
+            <p class="muted">Paint match consultation required.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Windshield Rock Chip Repair</h3>
+            <p>Small rock chip repair to help improve visibility and reduce spread risk.</p>
+            <div class="price">Starting at $75</div>
+            <p class="muted">Subject to chip size and location.</p>
+          </div>
+        </div>
+
+        <div class="orange-box reveal" style="margin-top:24px;">
+          Emergency detailing, event prep, show prep, and priority response available at premium rates.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AFTER-CARE PRODUCTS ── -->
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">After Care Products</div>
+          <h2>Maintain The <span>Finish.</span></h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <h3>All Purpose Cleaner</h3>
+            <p class="muted">Versatile cleaning power for routine upkeep.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Nebula Mist</h3>
+            <p class="muted">Quick detail spray for gloss and slickness.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Sapphire Vision</h3>
+            <p class="muted">Premium glass cleaner for crystal-clear visibility.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Sapphire Vision Plus+</h3>
+            <p class="muted">Aerosol glass cleaner for pro-level clarity.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Fresh Kicks</h3>
+            <p class="muted">Tire dressing for a deep, clean finish.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Cab-In-Kush</h3>
+            <p class="muted">Leather cleaner and conditioner for premium interiors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALLERY ── -->
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">Gallery</div>
+          <h2>Before / After + <span>Featured Machines.</span></h2>
+        </div>
+
+        <div class="gallery reveal">
+          <div class="gallery-item" data-label="Exotic Detail"
+            style="background-image:url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=900&q=80')"></div>
+          <div class="gallery-item" data-label="Classic Finish"
+            style="background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80')"></div>
+          <div class="gallery-item" data-label="Modified Build"
+            style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80')"></div>
+          <div class="gallery-item" data-label="Aircraft Care"
+            style="background-image:url('https://images.unsplash.com/photo-1521727857535-28d2047619b7?auto=format&fit=crop&w=900&q=80')"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SCHEDULE ── -->
+    <section id="schedule">
+      <div class="container grid grid-2">
+        <div class="reveal">
+          <div class="section-title">
+            <div class="eyebrow">Schedule</div>
+            <h2>Mobile Detailing <span>By Appointment.</span></h2>
+          </div>
+          <p class="muted">
+            Available Monday&ndash;Friday, 8:00 AM&ndash;6:00 PM.
+            All services begin with a consultation and custom quote.
+            Secure card payment available upon booking approval.
+          </p>
+          <br>
+          <p>
+            Service area: McAllen, Edinburg, Mission, Pharr, San Juan, Hidalgo,
+            and surrounding Rio Grande Valley areas.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <form onsubmit="submitForm(event)" novalidate>
+            <input type="text"  name="name"    placeholder="Full Name"                    required aria-label="Full Name">
+            <input type="tel"   name="phone"   placeholder="Phone Number"                 required aria-label="Phone Number">
+            <input type="email" name="email"   placeholder="Email Address"                         aria-label="Email Address">
+            <input type="text"  name="vehicle" placeholder="Vehicle Year / Make / Model"           aria-label="Vehicle Year, Make, and Model">
+            <select name="service" required aria-label="Service Needed">
+              <option value="">Service Needed</option>
+              <option>Premium Car Wash</option>
+              <option>Full Detail</option>
+              <option>Ceramic Coating Consultation</option>
+              <option>Paint Correction</option>
+              <option>Paint Touch-Up</option>
+              <option>Windshield Rock Chip Repair</option>
+              <option>Emergency / Show Prep</option>
+            </select>
+            <textarea name="notes" placeholder="Tell us about your vehicle, condition, location, and preferred date." aria-label="Additional notes"></textarea>
+            <button class="btn" type="submit">Submit Quote Request</button>
+          </form>
+          <div class="form-success">
+            <div class="form-success-icon" aria-hidden="true">&#10003;</div>
+            <h3>Request Sent!</h3>
+            <p>We'll be in touch shortly to confirm your appointment and custom quote.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ── -->
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <div class="eyebrow">Testimonials</div>
+          <h2>Client <span>Impressions.</span></h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card testimonial-card reveal">
+            <p>"Professional, sharp, and extremely detail-oriented. My car looked better than delivery day."</p>
+            <br><strong>— Sample Client</strong>
+          </div>
+          <div class="card testimonial-card reveal">
+            <p>"The mobile service made everything easy. Premium experience from start to finish."</p>
+            <br><strong>— Sample Client</strong>
+          </div>
+          <div class="card testimonial-card reveal">
+            <p>"Perfect for enthusiasts who care about the small details. Highly recommend."</p>
+            <br><strong>— Sample Client</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact">
+      <div class="container grid grid-2">
+        <div class="reveal">
+          <div class="section-title">
+            <div class="eyebrow">Contact</div>
+            <h2>Let's Detail <span>What Drives You.</span></h2>
+          </div>
+
+          <p><strong>Phone:</strong> <a href="tel:9565550123">(956) 555-0123</a></p>
+          <p><strong>Text:</strong>  <a href="sms:9565550123">Send a Text</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@govolante.com">info@govolante.com</a></p>
+          <p><strong>Instagram:</strong> @govolante</p>
+          <p><strong>Facebook:</strong> Go Volante</p>
+        </div>
+
+        <div class="card reveal">
+          <form onsubmit="submitForm(event)" novalidate>
+            <input type="text"  name="name"  placeholder="Name"  required aria-label="Your name">
+            <input type="tel"   name="phone" placeholder="Phone" required aria-label="Phone number">
+            <input type="email" name="email" placeholder="Email"          aria-label="Email address">
+            <textarea name="message" placeholder="How can Go Volante help?" aria-label="Your message"></textarea>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+          <div class="form-success">
+            <div class="form-success-icon" aria-hidden="true">&#10003;</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out. We'll reply as soon as possible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <strong>Go Volante</strong>. Mobile Luxury Detailing across the Rio Grande Valley.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
